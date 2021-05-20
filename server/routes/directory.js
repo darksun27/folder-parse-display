@@ -2,7 +2,7 @@ const fs = require("fs");
 
 module.exports = (app) => {
     app.post("/getInfo", async (req, res) => {
-        let pathToSearch = `${process.cwd()}/routes`;
+        let pathToSearch = `${process.cwd()}/testdir`;
         if(req.body.path != "null") {
             pathToSearch = req.body.path;
         }
