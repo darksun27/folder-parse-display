@@ -2,7 +2,6 @@ import "./card.css";
 
 export default function Card(props) {
     let { fileName, fileType } = props;
-    console.log(props);
     return (
         <div className="card">            
             <div className="text-center">

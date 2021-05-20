@@ -9,15 +9,18 @@ module.exports = (app) => {
         await fs.readdir( pathToSearch, (err,files) => {
             if(err) {
                 console.log("Path Reading Error")
+                res.send([]);
             }
-            let fileDetails = [];
-            files.forEach(file => {
-                fileDetails.push({
-                    fileName: file,
-                    fileType: file.split(".").length > 1 ? 'txt' : 'folder'
+            else {
+                let fileDetails = [];
+                files.forEach(file => {
+                    fileDetails.push({
+                        fileName: file,
+                        fileType: file.split(".").length > 1 ? 'txt' : 'folder'
+                    });
                 });
-            });
-            res.send(fileDetails);
+                res.send(fileDetails);
+            }
         });
     });
 }

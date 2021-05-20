@@ -7,6 +7,9 @@ const ListContext = React.createContext();
 export const ListProvider = ({ children }) => {
     const [fileDetails, setFileDetails] = useState([]);
     const fetchData = async (path = null) => {
+        if(path === '') {
+            path = null;
+        }
         let formData = new FormData();
         formData.append('path', path);
         let { data } = await new axios({
