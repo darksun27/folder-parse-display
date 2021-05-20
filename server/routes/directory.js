@@ -1,8 +1,12 @@
 const fs = require("fs");
 
 module.exports = (app) => {
-    app.get("/getInfo", async (req, res) => {
-        await fs.readdir(`/home/darksun27/Desktop/mettl-interview/server/routes`, (err,files) => {
+    app.post("/getInfo", async (req, res) => {
+        let pathToSearch = `${process.cwd()}/routes`;
+        if(req.body.path != "null") {
+            pathToSearch = req.body.path;
+        }
+        await fs.readdir( pathToSearch, (err,files) => {
             if(err) {
                 console.log("Path Reading Error")
             }
@@ -15,5 +19,5 @@ module.exports = (app) => {
             });
             res.send(fileDetails);
         });
-    })
+    });
 }

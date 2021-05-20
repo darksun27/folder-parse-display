@@ -1,8 +1,11 @@
 
 require("dotenv").config();
 const express = require("express");
+const multer = require('multer');
 
 const app = express();
+app.use(multer().array());
+app.use(require("cors")());
 
 //Importing Routes
 require("./routes/directory")(app);

@@ -9,7 +9,9 @@
   "author": "darksun27",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^9.0.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
   }
 }
